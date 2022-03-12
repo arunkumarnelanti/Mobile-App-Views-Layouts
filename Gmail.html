@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+    <title>Gmail</title>
+    <style>
+        /*header style starts here */
+        .header{
+            width:100%;
+            height: 40px;
+            background-color: black;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            color: white;
+            position: relative;
+        }
+        .datetime{
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .date{
+            float: right;
+            padding-right: 10px;
+        }
+        /* header style ends here */
+
+        .container{
+            background: #444;
+            height:max-content;
+        }
+        .menu{
+            padding-left: 7px;
+            padding-top: 10px;
+        }
+        .footer{
+            background:black;
+            height:max-content;
+        }
+        .back{
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: #444;
+            color: white;
+            width:40px;
+            height: 20px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+    </head>
+    <body onload="initClock()">
+         <!--header part starts here-->
+         <div class="header">
+            <div class="datetime">
+                <span id="hour">00</span> :
+                <span id="minutes">00</span> :
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+                <span id="year" class="date">Year</span>
+                <span id="month" class="date">Month</span>
+                <span id="daynum" class="date">00</span>
+                <span class="date">,</span>
+                <span id="dayname" class="date">Day</span>
+            </div>
+        </div>
+        <!--header part ends here-->
+        <div class="container">
+            <div class="menu">
+                <img src="menu.jpg" style="width: 32px; height: 32px; cursor: pointer; padding-top:-23px; padding-right: 12px;">
+                <a href="#" style="font-family:Assistant;width:40px;cursor:auto; font-size:20px;color: grey; border:1px solid black;border-radius: 25px;padding-left: 60px;padding-right: 60px;">Search in mail</a>
+                <img src="profile_pic.png" style="width: 32px; height: 32px; cursor: pointer; float: right;padding-top:-23px; padding-right: 12px;"><br><br>
+            </div>
+        </div>
+        <div class="footer"><br>
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+            <a href="#" style="font-family:Assistant; font-size:32px;float:right;padding-right: 120px;color: blue; border:1px solid white;border-radius: 15px;background-color: lightskyblue;height: 40px;width:40px;padding-left:20px;padding-top:10px;padding-bottom:10px;text-align:center;">Compose</a>
+            <br><br><hr color="grey" size=".7px">
+            <br><br><hr color="grey" size=".7px">
+        </div><br>
+        <div class="back">
+            <a href="index.html">Back</a>
+        </div>
+    </body>
+    <script>
+        //script for date and time starts here
+        function updateClock(){
+            var now=new Date();
+            var dname=now.getDay(),
+            mo=now.getMonth(),
+            dnum=now.getDate(),
+            yr=now.getFullYear(),
+            hou=now.getHours(),
+            min=now.getMinutes(),
+            sec=now.getSeconds(),
+            pe="AM";
+            if(hou==0){
+                hou=12;
+            }if(hou>12){
+                hou=hou-12;
+                pe="PM";
+            }
+            Number.prototype.pad=function(digits){
+                for(var n=this.toString(); n.length<digits;n=0+n);
+                return n;
+            }
+            var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+            var week=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            var ids=["dayname","month","daynum","year","hour","minutes","seconds","period"];
+            var values=[week[dname],months[mo],dnum.pad(2),yr,hou.pad(2),min.pad(2),sec.pad(2),pe];
+            for(var i=0;i<ids.length;i++)
+            document.getElementById(ids[i]).firstChild.nodeValue=values[i];
+        }
+        function initClock(){
+            updateClock();
+            window.setInterval("updateClock()",1);
+        }
+        //script for date and time ends here
+    </script>
+</html>
