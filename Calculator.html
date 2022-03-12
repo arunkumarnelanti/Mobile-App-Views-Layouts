@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        /*header style starts here */
+        .header{
+            width:100%;
+            height: 40px;
+            background-color: black;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            color: white;
+            position: relative;
+        }
+        .datetime{
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .date{
+            float: right;
+            padding-right: 10px;
+        }
+        /* header style ends here */
+
+        /*style for calculator starts here */
+        .calculator{
+            flex: 0 0 95%;
+        }
+        .screen{
+            width: 100%;
+            font-size: 7rem;
+            padding: 0.5rem;
+            background: rgb(41,41,56);
+            color: white;
+            border:none;
+            box-sizing: border-box;
+        }
+        .buttons{
+            display: flex;
+            flex-wrap: wrap;
+            transition: all 0.5s linear;
+        }
+        button{
+            flex:0 0 25%;
+            border: 1px solid black;
+            padding: 0.25rem 0;
+            transition: all 2s ease;
+        }
+        .btn-grey:hover{
+            background: blue;
+            border-radius: 10px;
+        }
+        .btn-yellow{
+            background: black;
+            color: white;
+        }
+        .btn-yellow:hover{
+            background: #444;
+            border-radius: 10px;
+        }
+        .btn-grey{
+            background: black;
+            color: whitesmoke;
+        }
+        .btn,.btn-equal,.btn-clear{
+            font-size: 4rem;
+        }
+        .btn-equal{
+            background: green;
+        }
+        .btn-equal:hover{
+            background:darkgreen;
+        }
+        .btn-clear{
+            background: red;
+        }
+        .btn-clear:hover{
+            background: darkred;
+        }
+        /*style for calculator ends here */
+        .back{
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: #444;
+            color: white;
+            width:40px;
+            height: 20px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+    </head>
+    <body onload="initClock()">
+         <!--header part starts here-->
+         <div class="header">
+            <div class="datetime">
+                <span id="hour">00</span> :
+                <span id="minutes">00</span> :
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+                <span id="year" class="date">Year</span>
+                <span id="month" class="date">Month</span>
+                <span id="daynum" class="date">00</span>
+                <span class="date">,</span>
+                <span id="dayname" class="date">Day</span>
+            </div>
+        </div>
+        <!--header part ends here-->
+        <section class="calculator">
+            <form>
+                <input type="text" name="" id="" class="screen">
+            </form>
+            <div class="buttons">
+                <!-- yellow buttons -->
+                <button type="button" class="btn btn-yellow" data-num="/">/</button>
+                <button type="button" class="btn btn-yellow" data-num="*">*</button>
+                <button type="button" class="btn btn-yellow" data-num="-">-</button>
+                <button type="button" class="btn btn-yellow" data-num="+">+</button>
+                <!-- grey buttons -->
+                <button type="button" class="btn btn-grey" data-num="7">7</button>
+                <button type="button" class="btn btn-grey" data-num="8">8</button>
+                <button type="button" class="btn btn-grey" data-num="9">9</button>
+                <button type="button" class="btn btn-yellow" data-num=".">.</button>
+                <button type="button" class="btn btn-grey" data-num="4">4</button>
+                <button type="button" class="btn btn-grey" data-num="5">5</button>
+                <button type="button" class="btn btn-grey" data-num="6">6</button>
+                <button type="button" class="btn-clear btn-grey">C</button>
+                <button type="button" class="btn btn-grey" data-num="1">1</button>
+                <button type="button" class="btn btn-grey" data-num="2">2</button>
+                <button type="button" class="btn btn-grey" data-num="3">3</button>
+                <button type="button" class="btn-equal btn-grey">=</button>
+                <button type="button" class="btn btn-grey" data-num="0">0</button>
+            </div>
+        </section><br>
+        <div class="back">
+            <a href="index.html">Back</a>
+        </div>
+    </body>
+    <script>
+        //script for date and time starts here
+        function updateClock(){
+            var now=new Date();
+            var dname=now.getDay(),
+            mo=now.getMonth(),
+            dnum=now.getDate(),
+            yr=now.getFullYear(),
+            hou=now.getHours(),
+            min=now.getMinutes(),
+            sec=now.getSeconds(),
+            pe="AM";
+            if(hou==0){
+                hou=12;
+            }if(hou>12){
+                hou=hou-12;
+                pe="PM";
+            }
+            Number.prototype.pad=function(digits){
+                for(var n=this.toString(); n.length<digits;n=0+n);
+                return n;
+            }
+            var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+            var week=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            var ids=["dayname","month","daynum","year","hour","minutes","seconds","period"];
+            var values=[week[dname],months[mo],dnum.pad(2),yr,hou.pad(2),min.pad(2),sec.pad(2),pe];
+            for(var i=0;i<ids.length;i++)
+            document.getElementById(ids[i]).firstChild.nodeValue=values[i];
+        }
+        function initClock(){
+            updateClock();
+            window.setInterval("updateClock()",1);
+        }
+        //script for date and time ends here
+
+        //script for calculator starts here
+        (function(){
+  
+            let screen = document.querySelector('.screen');
+            let buttons = document.querySelectorAll('.btn');
+            let clear = document.querySelector('.btn-clear');
+            let equal = document.querySelector('.btn-equal');
+            //retrieve data from numbers that are clicked
+            buttons.forEach(function(button){
+                button.addEventListener('click', function(e){
+                let value = e.target.dataset.num;
+                screen.value += value;
+                })
+            });
+            equal.addEventListener('click', function(e){
+                if(screen.value === ''){
+                screen.value = 'Please Enter a Value';
+                } else {
+                let answer = eval(screen.value);
+                screen.value = answer;
+                }
+            });
+            clear.addEventListener('click', function(e){
+                screen.value = '';
+            })
+            })();
+            //script for calculator ends here
+    </script>
+</html>
