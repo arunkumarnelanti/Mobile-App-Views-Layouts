@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <title>Mobile App view and Layouts</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .header{
+                width:100%;
+                height: 40px;
+                background-color: black;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+                color: white;
+                position: fixed;
+            }
+            .datetime{
+                padding-left: 10px;
+                padding-top: 10px;
+            }
+            .date{
+                float: right;
+                padding-right: 10px;
+            }
+            .container{
+               background:linear-gradient(180deg, #444,black);
+                width:100%;
+            }
+            .arrange{
+                padding-top: 25px;
+            }
+            #pad{
+                padding: 37.5px;
+                display: inline-block;
+            }
+            label{
+                color: white;
+            }
+        </style>
+    </head>
+    <body onload="initClock()">
+        <!--header part starts here-->
+        <div class="header">
+            <div class="datetime">
+                <span id="hour">00</span> :
+                <span id="minutes">00</span> :
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+                <span id="year" class="date">Year</span>
+                <span id="month" class="date">Month</span>
+                <span id="daynum" class="date">00</span>
+                <span class="date">,</span>
+                <span id="dayname" class="date">Day</span>
+            </div>
+        </div>
+        <!--header part ends here--><br><br>
+        <!--body part starts here-->
+        <div class="container">
+            <div class="arrange">
+                <center>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Amazon.html">
+                            <img src="amazon_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Amazon</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Calculator.html">
+                            <img src="calculator.png" style="width: 70px;height: 70px;"><br>
+                            <label>Calculator</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Calender.html">
+                            <img src="calender_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Calender</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Chrome.html">
+                            <img src="chrome_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Chrome</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Facebook.html">
+                            <img src="facebook_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Facebook</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Gmail.html">
+                            <img src="gmail_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Gmail</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Gpay.html">
+                            <img src="gpay.png" style="width: 70px;height: 70px;"><br>
+                            <label>GPay</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Instagram.html">
+                            <img src="instagram_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>Instagram</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="https://arunkumarnelanti.github.io/Land_Area_Calculator/">
+                            <img src="calculator.png" style="width: 70px;height: 70px;"><br>
+                            <label>Land Calculator</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Makemytrip.html">
+                            <img src="makemytrip_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>MakeMyTrip</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Maps.html">
+                            <img src="maps_logo.png"  style="width: 70px;height: 70px;"><br>
+                            <label>Maps</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="https://arunkumarnelanti.github.io/Hotel-Room-Booking-Application/">
+                            <img src="NRstays.png"  style="width: 70px;height: 70px;"><br>
+                            <label>NR Stays</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="https://arunkumarnelanti.github.io/E-Commerce-Shopping-Website/">
+                            <img src="Smart.png"  style="width: 70px;height: 70px;"><br>
+                            <label>SMart</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Twitter.html">
+                            <img src="twitter.png" style="width: 70px;height: 70px;"><br>
+                            <label>Twitter</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="https://arunkumarnelanti.github.io/Weather-Forecast-Application/">
+                            <img src="weather_icon.png" style="width: 70px;height: 70px;"><br>
+                            <label>Weather</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Whatsapp.html">
+                            <img src="whatsapp_logo.png" style="width: 70px;height: 70px;"><br>
+                            <label>WhatsApp</label>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 " id="pad">
+                        <a href="Youtube.html">
+                            <img src="youtube.png" style="width: 70px;height: 70px;"><br>
+                            <label>YouTube</label>
+                        </a>
+                    </div>                
+                </center>
+            </div>
+        </div>
+        <!--body part ends here-->
+    </body>
+    <script>
+        //script for date and time starts here
+        function updateClock(){
+            var now=new Date();
+            var dname=now.getDay(),
+            mo=now.getMonth(),
+            dnum=now.getDate(),
+            yr=now.getFullYear(),
+            hou=now.getHours(),
+            min=now.getMinutes(),
+            sec=now.getSeconds(),
+            pe="AM";
+            if(hou==0){
+                hou=12;
+            }if(hou>12){
+                hou=hou-12;
+                pe="PM";
+            }
+            Number.prototype.pad=function(digits){
+                for(var n=this.toString(); n.length<digits;n=0+n);
+                return n;
+            }
+            var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+            var week=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            var ids=["dayname","month","daynum","year","hour","minutes","seconds","period"];
+            var values=[week[dname],months[mo],dnum.pad(2),yr,hou.pad(2),min.pad(2),sec.pad(2),pe];
+            for(var i=0;i<ids.length;i++)
+            document.getElementById(ids[i]).firstChild.nodeValue=values[i];
+        }
+        function initClock(){
+            updateClock();
+            window.setInterval("updateClock()",1);
+        }
+        //script for date and time ends here
+    </script>
+</html>
